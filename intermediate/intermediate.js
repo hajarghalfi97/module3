@@ -141,10 +141,10 @@
 // fruits.push('Banana') // adds to the end of the array
 // console.log(fruits); // [ 'Apple', 'Orange', 'Banana' ]
 
-const fruits = ['Apple', 'Orange', 'Pear']
-const firstFruit = fruits.shift() // removes and returns the first item
-console.log(firstFruit) // Apple
-console.log(fruits) // [ 'Orange', 'Pear' ]
+// const fruits = ['Apple', 'Orange', 'Pear']
+// const firstFruit = fruits.shift() // removes and returns the first item
+// console.log(firstFruit) // Apple
+// console.log(fruits) // [ 'Orange', 'Pear' ]
 
-fruits.unshift('Banana') // adds to the beginning of the array
-console.log(fruits) // [ 'Banana', 'Orange', 'Pear' ]
+// fruits.unshift('Banana') // adds to the beginning of the array
+// console.log(fruits) // [ 'Banana', 'Orange', 'Pear' ]
