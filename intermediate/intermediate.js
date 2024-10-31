@@ -148,3 +148,142 @@
 
 // fruits.unshift('Banana') // adds to the beginning of the array
 // console.log(fruits) // [ 'Banana', 'Orange', 'Pear' ]
+
+// Arrays-internel
+
+// const fruits1 = ['Apple', 'Orange', 'Pear']
+// const fruits2 = fruits1 // refers to same memory location
+// fruits1.push('Banana') // add new item to the end of fruits1
+// console.log(fruits2) // [ 'Apple', 'Orange', 'Pear', 'Banana' ]
+// // fruits2 reflects the same change made to fruits1 since they both reference the same memory location
+// console.log('fruit at index 0: ' + fruits1[0]) // Apple - accessed using numeric index 0
+// console.log('fruit at index 1: ' + fruits1[1]) // Orange - accessed using numeric index 1
+
+// const matrix = [ // 3x3 matrix
+//     [1, 2, 3], // row 0
+//     [4, 5, 6], // row 1
+//     [7, 8, 9] // row 2
+//     ]
+//     console.log(matrix[1][1]) // 5, the value in row 1, column 1
+
+
+// const numbers = [1, 2, 3]
+// const strings = ["one", "two", "three"]
+// const empty = []
+// console.log('Numbers: ' + numbers) // Numbers: 1,2,3
+// console.log('Strings: ' + strings) // Strings: one,two,three
+// console.log('Empty: ' + empty) // Empty:
+
+
+//Arrays sliced-method
+// const sliceArray = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
+// const sliced = sliceArray.slice(0, 3) // start at the beginning, get items up to index 3
+// const endSliced = sliceArray.slice(-3) // start at the end, get last 3 items
+// console.log(sliced) // [ 'red', 'orange', 'yellow' ]
+// console.log(endSliced) // [ 'blue', 'indigo', 'violet' ]
+// console.log(sliceArray) // ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+// Arrays- splice method
+// const spliceArray = ["I", "study", "JavaScript", "right", "now"]
+// const removed = spliceArray.splice(0, 3, "Let's", "dance")
+// console.log(removed) // [ 'I', 'study', 'JavaScript' ] - 3 elements starting at index 0 are removed
+// console.log(spliceArray) // [ "Let's", 'dance', 'right', 'now' ] - 2 new elements are inserted
+
+// //Arraus concat-method
+// const array1 = [1,2,3]
+// const array2 = [4,5,6]
+// const array3 = [7,8,9]
+// const combined = array1.concat(array2, array3)
+// console.log(combined) // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+// console.log(combined.concat(10, 11)) // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+
+// const marks = ['A+', 'C+', 'B-', 'D', 'B+', 'C+', 'B-']
+// let bIndex = marks.indexOf('B-')
+// let eIndex = marks.indexOf('E')
+// // first index is always 0
+// console.log(marks[bIndex] + ' is at index: ' + bIndex) // B- is at index: 2
+// console.log(eIndex) // -1, since not found
+
+
+//Arrays lastindexof method
+// const marks = ['A+', 'C+', 'B-', 'D', 'B+', 'C+', 'B-']
+// let bIndexFirst = marks.indexOf('B-')
+// let bIndexLast = marks.lastIndexOf('B-')
+// console.log(marks[bIndexFirst] + ' is first at: ' + bIndexFirst) // B- is first at: 2
+// console.log(marks[bIndexLast] + ' is last at: ' + bIndexLast) // B- is last at: 6
+
+
+// const elements = ['Wind', 'Water', 'Fire', 'Air']
+// console.log( elements.join() ) // Wind,Water,Fire,Air
+// console.log( elements.join(' ') ) // Wind Water Fire Air
+
+
+//arrays foreach method
+// const hobbits = ['Bilbo', 'Frodo', 'Samwise', 'Merry', 'Pippin']
+// hobbits.forEach((hobbit, index) => { // usually we use an arrow function here
+// console.log(`#${index}: ${hobbit}`) // runs once for every item in array
+// })
+
+
+//Array - find method
+// const products = [
+//     { id: 1, title: 'Sleeveless Tee', price: 23.95, category: 'Shirts' },
+//     { id: 2, title: "Men's Hoodie", price: 54.95, category: 'Winter' },
+//     { id: 3, title: "Denim Jeans", price: 49.95, category: 'Pants' }
+//     ]
+//     // we usually use an arrow function - runs once for each array element until condition is true
+//     let jeans = products.find(product => product.title == 'Denim Jeans') // returns matching item
+//     let shirt = products.find(product => product.category == 'Shirts') // returns matching item
+//     console.log(jeans) // { id: 3, title: 'Denim Jeans', price: 49.95, category: 'Pants' }
+//     console.log(shirt) // { id: 1, title: 'Sleeveless Tee', price: 23.95, category: 'Shirts' }
+
+    //Array filter-method
+    // const products = [
+    //     { id: 1, title: 'Sleeveless Tee', price: 23.95, category: 'Shirts' },
+    //     { id: 2, title: "Men's Hoodie", price: 54.95, category: 'Winter' },
+    //     { id: 3, title: "Denim Jeans", price: 49.95, category: 'Pants' },
+    //     { id: 4, title: "Ladies Tee", price: 25.95, category: 'Shirts' }
+        // ]
+//         // we usually use an arrow function - runs once for each element, returns array of matches
+//         let shirts = products.filter(product => product.category == 'Shirts')
+//         let under50 = products.filter(product => product.price < 50)
+//         console.log(shirts) // 2 matching items in shirts array
+//         console.log(under50) // 3 matching items in under50 array
+
+//     //Arrays - map method
+//     let titles = products.map(product => product.title)
+// let h2titles = products.map(product => '<h2>'+product.title+'</h2>')
+// let raisedPrices = products.map(product => ({...product, price: product.price + 5}) )
+// console.log(titles) // [ 'Sleeveless Tee', "Men's Hoodie", 'Denim Jeans', 'Ladies Tee' ]
+// console.log(h2titles) // [ '<h2>Sleeveless Tee</h2>', "<h2>Men's Hoodie</h2>", '<h2>Denim Jeans</h2>',
+// // '<h2>Ladies Tee</h2>' ]
+// console.log(raisedPrices) // all prices increased by $5
+
+
+//Arrays - Sort method
+// products.sort( (product1, product2) => product1.price - product2.price )
+// console.log(products) // original array is modified to new low-high price sorting order: 1,4,3,2
+// products.sort( (p1, p2) => p1.title > p2.title ? 1 : -1 )
+// console.log(products) // original array is modified to new title sorting order: 3,4,2,1
+// const numbers = [4,8,1,5,66,23,41]
+// console.log( numbers.sort() ) // [ 1, 23, 4, 41, 5, 66, 8 ] : string comparisons
+// console.log( numbers.sort((num1, num2) => num1 - num2) ) // [ 1, 4, 5, 8, 23, 41, 66 ]
+
+// //Arrays reverse- method
+// const elements = ['Wind', 'Water', 'Fire', 'Air']
+// const reversed1 = elements.reverse() // modifies the original
+// const reversed2 = [...elements].reverse() // clone first to preserve the original
+// console.log(elements) // [ 'Air', 'Fire', 'Water', 'Wind' ]
+// console.log(reversed2) // [ 'Wind', 'Water', 'Fire', 'Air' ] (reversed twice)
+
+
+//Arrays reduce-method
+const products = [
+    { id: 1, title: 'Sleeveless Tee', price: 23.95, category: 'Shirts', quantity: 2 },
+    { id: 2, title: "Men's Hoodie", price: 54.95, category: 'Winter', quantity: 3 },
+    { id: 3, title: "Denim Jeans", price: 49.95, category: 'Pants', quantity: 5 }
+    ] // initial (below) should be 0 for reliability in calculating totals
+    const totalPrice = products.reduce((currentTotal, currentProduct) => currentTotal + currentProduct.price, 0)
+    const totalQty = products.reduce((currentQty, currentProduct) => currentQty + currentProduct.quantity, 0)
+    console.log(totalPrice) // 128.85000000000002
+    console.log(totalQty) // 10
