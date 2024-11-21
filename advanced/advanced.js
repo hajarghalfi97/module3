@@ -311,12 +311,25 @@
 //     }
 //     console.log( "La".repeat(3) ); // LaLaLa   
 
-const obj = {
-    0:"hello",
-    1:"world",
-    length: 2,
+// const obj = {
+//     0:"hello",
+//     1:"world",
+//     length: 2,
 
-};
-obj.join = Array.prototype.join; // adds a join function to THIS object that uses Array.join()
-Object.prototype.join = Array.prototype.join; // adds a join function to ALL objects
-console.log(obj.join(','));
+// };
+// obj.join = Array.prototype.join; // adds a join function to THIS object that uses Array.join()
+// Object.prototype.join = Array.prototype.join; // adds a join function to ALL objects
+// console.log(obj.join(','));
+
+
+class ExampleClass {
+    // each instance of the class will have any properties
+    prop1 = 'value1';
+    prop2 = 'value2';
+    constructor() {
+    // constructor function creates a new instance of this class
+    }
+    method1() {
+    // methods are functions of the class
+    }
+    }
