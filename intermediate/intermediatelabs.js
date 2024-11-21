@@ -252,9 +252,9 @@
 //     highestEarner = name
 // }
 //         }
-// return `${highestEarner}earns the most of everyone`
-//     }
-//     console.log (topEarner(salaries))
+// // return `${highestEarner}earns the most of everyone`
+// //     }
+// //     console.log (topEarner(salaries))
 
 //     const today = new Date();
 // console.log('Current time is ' + today.toLocaleTimeString())
@@ -275,3 +275,32 @@
 // if (months<0){years -=1; months +=12}
 
 // console.log(`i am ${years}years, ${months},and ${days}days old`)
+
+
+
+
+
+// these are the two methods iam not sure if true or wrong
+
+// function DaysInBetween {
+
+
+
+    
+//     const date1= date1.getFullYear() +date1.getMonth()+date1.getdate()
+
+//     const date2= date2.getFullYear()+date2.getMonth()+ date2.getdate()
+
+//     DaysInBetween= (date1-date2)
+// }
+
+
+
+
+
+
+// const date1 = new Date(2024-13-11);
+// const date2 = new Date(2024-16-11);
+
+// const DaysInBetween= getDaysInBetween(date1,date2);
+// console.log(DaysInBetween)
