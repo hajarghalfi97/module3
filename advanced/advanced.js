@@ -322,14 +322,296 @@
 // console.log(obj.join(','));
 
 
-class ExampleClass {
-    // each instance of the class will have any properties
-    prop1 = 'value1';
-    prop2 = 'value2';
-    constructor() {
-    // constructor function creates a new instance of this class
-    }
-    method1() {
-    // methods are functions of the class
-    }
-    }
+// class ExampleClass {
+//     // each instance of the class will have any properties
+//     prop1 = 'value1';
+//     prop2 = 'value2';
+//     constructor() {
+//     // constructor function creates a new instance of this class
+//     }
+//     method1() {
+//     // methods are functions of the class
+//     }
+//     }
+
+
+// class Animal {
+//     constructor(name) {
+//     this.speed = 0; this.name = name;
+//     }
+//     run(speed) {
+//     this.speed = speed;
+//     console.log(`${this.name} runs with speed ${this.speed} kph.`);
+//     }
+//     stop() {
+//     this.speed = 0;
+//     console.log(`${this.name} stands still.`);
+//     }
+//     }
+//     class Rabbit extends Animal {
+//     hide() { // custom function, also inherits from Animal
+//     console.log(`${this.name} hides!`);
+//     }
+//     }
+//     let bunny = new Rabbit('bunny'); // bunny contains properties and methods from Animal and Rabbit
+//     bunny.run(9); // bunny runs with speed 9 kph.
+//     bunny.hide(); // bunny hides!
+
+
+// class Rabbit extends Animal {
+//     stop() { // overrides stop method in parent class
+//     super.stop(); // call parent stop
+//     this.hide(); // and then hide
+//     }
+//     hide() { // custom function, also inherits this.name from Animal
+//     console.log(`${this.name} hides!`);
+//     }
+//     }
+//     let bunny = new Rabbit('bunny'); // bunny contains properties and methods from Animal and Rabbit
+//     bunny.run(9); // bunny runs with speed 9 kph.
+//     bunny.stop(); // bunny stands still. bunny hides!
+
+
+// class Rabbit extends Animal {
+//     constructor(name, earLength)
+//     {
+//     super(name); // call the constructor function of the parent, inherited Animal class
+//     this.earLength = earLength; // adds custom properties only for instances of Rabbit
+//     }
+//     stop() { // function overridden from parent class
+//     super.stop(); // call parent stop
+//     this.hide(); // and then hide
+//     }
+//     hide() { // custom child class function
+//     console.log(`${this.name} hides!`);
+//     }
+//     }
+//     let bunny = new Rabbit('bunny', 8);
+//     console.log(bunny.earLength)
+
+
+// class Animal {
+//     type = 'animal';
+//     constructor(name) {
+//     this.speed = 0;
+//     this.name = name;
+//     }
+//     describe() {
+//     console.log(`${this.name} is a ${this.type}`)
+//     }
+//     //... previous Animal methods go here
+//     }
+//     class Rabbit extends Animal {
+//     type = 'rabbit';
+//     //... previous Rabbit methods go here
+//     }
+//     new Rabbit('bunny').describe() // bunny is a rabbit
+//     new Animal('fuzzy wuzzy').describe() // fuzzy wuzzy is a animal
+
+
+// class Person {
+//     static latin = 'persona'; // static (class) property, belongs to class not any instance
+//     constructor(name) {
+//     this.name = name; // standard property, is unique to each instance of the class
+//     }
+//     getName() { // standard method, belongs to each instance of the class
+//     return this.name;
+//     }
+//     static createAnonymous() { // static (class) method, belongs to class not any instance
+//     return new Person("Unnamed Person");
+//     }
+//     }
+//     let jonas = new Person('Jonas')
+//     console.log( jonas.getName() ) // Jonas - name and getName() belong to an instance of Person
+//     console.log( jonas.latin ) // undefined - latin property doesn't belong to jonas
+//     console.log( Person.latin ) // persona - latin property belongs to Person class
+//     let anon = Person.createAnonymous() // use static (factory) method to create generic Person
+
+// class Laptop {
+//     _hardDiskType = 'HDD'; // protected property, meant to be internal
+//     constructor(brand) {
+//     this.brand = brand; // public property, can be used externally by instances
+//     }
+//     getHDiskType() { return this._hardDiskType; } // public method to access protected property
+//     }
+//     const macbook = new Laptop('Macbook Pro');
+//     console.log(macbook.brand) // public property, accessed externally from any instance
+//     console.log(macbook._hardDiskType) // works, not recommended as it violates encapsulation principles
+//     console.log(macbook.getHDiskType()) // recommended way to access protected property
+
+// class Laptop {
+//     _hardDiskType = 'HDD'; // protected property, SHOULD only be used by inheriting classes
+//     #numCPUFans = 1; // private property, CAN only be used internally by class methods
+//     constructor(brand) { // constructors are always public
+//     this.brand = brand; // public property
+//     }
+//     isGaming() { return false; } // public method
+//     getHDiskType() { return this._hardDiskType; } // public method to access protected property
+//     _increaseCPUFans() { // protected method
+//     if (this.isGaming()) this.#numCPUFans++ // can access private properties internally
+//     }
+//     }
+//     const macbook = new Laptop('Macbook Pro');
+//     console.log(macbook.#numCPUFans) // error: private property is not accessible
+
+// class GamingLaptop extends Laptop {
+//     constructor(brand) {
+//     super(brand); // public property, externally available to instances
+//     this._hardDiskType = 'SSD'; // protected props should be accessed by children, not instances
+//     this.#numCPUFans = 2; // error: private property is not accessible
+//     this._increaseCPUFans(); // use protected method to change #numCPUFans as it's internal
+//     }
+//     isGaming() { return true; } // public method
+//     }
+//     const alienware = new GamingLaptop('Alienware');
+//     //console.log(alienware.#numCPUFans) // error: private property is not accessible
+//     console.log(alienware._hardDiskType) // no error: but protected property SHOULD NOT be accessed
+//     console.log(alienware.getHDiskType()) // better: public method for accessing protected
+
+
+//  try {
+//     const error = "mismatched quotes'
+//     } catch (error) {
+//     console.log('will not catch above error')
+//     }
+// try {
+//     noSuchVariable;
+//     } catch (error) { // error is just a variable name. 'error', 'err' or 'e' are all commonly used
+//     console.log('caught an error: '+ error.message) // all errors have a message property
+//     }
+//     // caught an error: noSuchVariable is not defined
+//     console.log('even though an error occurred above, it was caught so code continues');
+
+// try {
+//     setTimeout( () => noSuchVariable, 1000 );
+//     } catch (error) { // error is just a variable name. 'error', 'err' or 'e' are all commonly used
+//     console.log('only synchronous errors! ' + error.message) // all errors have a message property
+//     }
+//     console.log('prints synchronous code then throws uncaught asynchronous error after 1 sec');
+
+// function checkJson(json) { // checks json argument for validity and ensures a name property
+//     try {
+//     const user = JSON.parse(json); // parse string into object
+//     if (!user.name) {
+//     throw new SyntaxError("Incomplete data: no name"); // we can throw our own custom errors
+//     }
+//     return true; // returns true (valid json) if no error was thrown above
+//     } catch (err) {
+//     if (err instanceof SyntaxError) { // once caught, we can do specific things based on error type
+//     console.log( "JSON Error: " + err.message );
+//     } else {
+//     throw err; // rethrow other non-syntax errors; invalid json will still cause a crash
+//     }
+//     }
+//     return false; // returns false if any error occurred
+// }
+
+
+//     function checkJson(json) {
+//         try {
+//         // ... as above
+//         return true;
+//         } catch (err) {
+//         //... as above
+//         }
+//         finally {
+//         console.log('at the end'); // always prints, even if returning true or throwing an error
+//         // used to complete operations and perform cleanup regardless if we hit errors or not,
+//         // eg. closing db connections, removing interval timers, cancelling event listeners, etc
+//         }
+//         return false; // returns false if any error occurred
+//         }
+
+// promise.then( (result) => console.log(result), // prints if/when promise resolves successfully
+// (error) => console.error(error) )
+
+// promise.then( (result) => console.log(result) ) // prints if/when promise resolves successfully
+// .catch( (error) => console.error(error) ) // prints if/when promises completes with
+
+
+// promise
+// .finally( () => console.log('promise is settled') ) // prints when promise settles
+// .then( (result) => console.log(result) ) // prints if/when promise resolves successfully
+// .catch( (error) => console.error(error) ) // prints if/when promises completes with
+
+
+// const promise = new Promise((resolve, reject) => { // resolve/reject are callback functions
+//     if (Math.random() > 0.5) setTimeout( () => resolve('Random number ok'), 250 ) // success
+//     else setTimeout( () => reject('Random number too low'), 250 ) // failure
+//     })
+//     promise // consume the promise by responding to outcomes when they happen
+//     .finally( () => console.log('Wait is over, promise has settled.') ) // always prints
+//     .then( (result) => console.log('Success! ' + result ) ) // prints resolve msg
+//     .catch( (error) => console.log('Error! ' + error ) ) // prints reject msg
+
+
+/* <html> <!-- very basic fetch example demonstrating real-world promises -->
+<body>
+<h2>Check the Dev Inspector Console</h2>
+<script>
+fetch('https://reqres.in/api/users') // request data from this server
+
+// when it completes, access the JSON from the HTTP response sent by resolved promise
+
+.then(response => response.json()) // .json() also returns a promise
+.then(json => console.log(json)) // log the returned JSON to the browser console
+.catch(error => console.error(error)) // if there was an error, log that too
+</script>
+</body>
+//</html>*/
+
+
+
+// let start = 10;
+// new Promise((resolve, reject) => {
+// resolve(start); // resolve promise successfully with value of 10
+// }).then((result) => { // when resolve is called, it triggers .then()
+// console.log(result); return result + start; // values returned from .then() are also promises
+// }).then((result) => { // so we can chain them together
+// console.log(result); return result + start; // increasing result by 10 each time
+// }).then((result) => { // we can continue to chain them together
+// console.log(result); return result + start; // increasing result by 10 each time
+// });
+
+
+
+// let start = 10;
+// new Promise( resolve => setTimeout(() => resolve(start), start * 10)
+// ).then(result => { // promise handler function inside .then()
+// console.log(result); let next = result + start;
+// return new Promise( resolve => setTimeout(() => resolve(next), next * 10) );
+// }).then(result => { // can explicitly return new promises
+// console.log(result); let next = result + start;
+// return new Promise( resolve => setTimeout(() => resolve(next), next * 10) );
+// }).then(result => { // which use the results of previously resolved promises in the chain
+// console.log(result); let next = result + start;
+// return new Promise( resolve => setTimeout(() => resolve(next), next * 10) );
+// });
+
+
+// const promise = new Promise((resolve) => {
+//     setTimeout( () => resolve('Simple successful promise'), 250 )
+//     });
+//     // using .then to process asynchronously:
+//     promise.then(msg => console.log(msg));
+//     // using await to process synchronously (if using await in a function it needs to be async):
+//     let msg = await promise;
+//     console.log(msg);
+
+//     async function asyncFunctionDeclaration() { ... } // function declaration syntax
+// const asyncFunctionExpression = async function() { ... } // function expression syntax
+// const asyncFunctionArrow = async () => { ... } // arrow function syntax
+
+
+//  async function waitForPromise() { // async function allows synchronous promise handling internally
+//     // since we have synchronous code and no .catch(), we use try ... catch for errors
+//     try {
+//     let promiseResult = await promise; // waits here as long as promise needs to resolve
+//     console.log(`Success: ${promiseResult}`) // then continues executing other code
+//     return true;
+//     } catch(error) {
+//     console.error(`Failure: ${error.message}`)
+//     }
+//     //only gets here if return true above did NOT happen, ie. there was an error
+//     return false;
+//  }
